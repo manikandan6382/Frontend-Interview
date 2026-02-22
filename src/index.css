@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --color-white-2: #E7E7E6;
+    --color-primary: #8570FF;
+    --color-danger:#FF1717;
+    --color-secondary:#593CFF;
+    --color-white-3:#F4F4F4;
+    --color-primary-dark:#504A6E;
+    --color-white-4:#d9d9d9;
+}
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.31);
+}
+
+.form-check-parent {
+    input[type="checkbox"] {
+        display: none;
+        visibility: hidden;
+    }
+
+    .form-check {
+        margin: auto;
+        -webkit-user-select: none;
+        user-select: none;
+        cursor: pointer;
+
+        .form-check-icon {
+            display: inline-block;
+            vertical-align: middle;
+            transform: translate3d(0, 0, 0);
+
+            position: relative;
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            transform: scale(1);
+            vertical-align: middle;
+            border: 1px solid var( --color-white-2);
+            transition: all 0.2s ease;
+
+            svg {
+                position: absolute;
+                top: 3px;
+                left: 2.5px;
+                fill: none;
+                stroke: var(--color-primary);
+                stroke-width: 2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-dasharray: 14px;
+                stroke-dashoffset: 14px;
+                transition: all 0.3s ease;
+                transition-delay: 0.1s;
+                rotate: 6deg;
+            }
+
+            &:before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: var( --color-white-2);
+                display: block;
+                transform: scale(0);
+                opacity: 1;
+                border-radius: 50%;
+            }
+
+        }
+
+        &:hover .form-check-icon {
+            border-color: var( --color-white-2);
+        }
+    }
+
+    .form-check-input:checked+.form-check .form-check-icon {
+        background: var( --color-white-2);
+        border-color: var( --color-white-2);
+        animation: wave-46 0.4s ease;
+
+        svg {
+            stroke-dashoffset: 0;
+        }
+
+        &:before {
+            transform: scale(3.5);
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+    }
+
+    @keyframes wave-46 {
+        50% {
+            transform: scale(0.9);
+        }
+    }
+}
+
+.text-white-2 {
+    color: var( --color-white-2);
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-in {
+    animation: slide-in 0.3s ease-out;
+}
+
+@keyframes scale-in {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-scale-in {
+    animation: scale-in 0.2s ease-out;
+}
